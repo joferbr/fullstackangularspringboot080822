@@ -16,7 +16,8 @@ import java.util.stream.Collectors;
 @RestControllerAdvice
 public class ApplicationControllerAdvice {
 
-    //Método de tratamento de erros para o usuário final ajustando o retorno das exceptions
+    // Método de tratamento de erros para o usuário final ajustando o retorno das
+    // exceptions
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ApiErrors handleValidationErros(MethodArgumentNotValidException ex) {
         BindingResult bindingResult = ex.getBindingResult();
@@ -27,7 +28,7 @@ public class ApplicationControllerAdvice {
         return new ApiErrors(messages);
     }
 
-    //Retorno dinâmico de mensagens de erro
+    // Retorno dinâmico de mensagens de erro
     public ResponseEntity handleResponseStatusException(ResponseStatusException ex) {
         String mensagemErro = ex.getMessage();
         HttpStatus codigoStatus = ex.getStatus();

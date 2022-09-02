@@ -5,10 +5,11 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.validator.constraints.br.CPF;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
@@ -22,7 +23,8 @@ public class Cliente {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    //Colocar à anotação @Valid no ClienteController no momento da requisição para dar certo.
+    // Colocar à anotação @Valid no ClienteController no momento da requisição para
+    // dar certo.
     @Column(nullable = false, length = 150)
     @NotEmpty(message = "{campo.nome.obrigatorio}")
     private String nome;
@@ -37,7 +39,7 @@ public class Cliente {
     private LocalDate dataCadastro;
 
     @PrePersist
-    public void prePersist(){
+    public void prePersist() {
         setDataCadastro(LocalDate.now());
     };
 }

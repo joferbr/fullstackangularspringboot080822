@@ -10,16 +10,16 @@ import java.util.Locale;
 
 public class InternacionalizacaoConfig {
 
-    //Define arquivo de mensagens//
+    // Define arquivo de mensagens//
     @Bean
     public MessageSource messageSource() {
         ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
-        messageSource.setBasename("classpath:messages"); //Injeta as mensagens do arquivo messages.properties//
-        messageSource.setDefaultEncoding("ISO-8859-1"); //Para aceitar caracteres acentuados do Brasil//
-        messageSource.setDefaultLocale(Locale.getDefault()); //Pega a localização via SO ou OS//
+        messageSource.setBasename("classpath:messages"); // Injeta as mensagens do arquivo messages.properties//
+        messageSource.setDefaultEncoding("ISO-8859-1"); // Para aceitar caracteres acentuados do Brasil//
         return messageSource;
     }
-    //Interpolaçãp
+
+    // Interpolaçãp
     @Bean
     public LocalValidatorFactoryBean validatorFactoryBean() {
         LocalValidatorFactoryBean bean = new LocalValidatorFactoryBean();
